@@ -46,8 +46,8 @@ export const games: gamesType[] = [
           <Text style={tw("text-base-c text-lg")}>
             Pekeleken er veldig enkel. Velg en ordstyrer til å lese utsagn.
             Personen som leser teller så høyt 3, 2, 1, og alle peker på
-            vedkommende de tror passer best til utsagnet. Den som flest peker må
-            drikke "vann".
+            vedkommende de tror passer best til utsagnet. Den som flest peker på
+            må drikke "vann".
           </Text>
           <View>
             <Text style={tw("text-base-c text-lg mt-4 underline mt-8 mb-2")}>
@@ -103,8 +103,8 @@ export const games: gamesType[] = [
           <Text style={tw("text-base-c text-lg")}>
             Del dere opp i lag. Minst to, men gjerne flere. Start spillet. Trykk
             videre til dere finner tre gjenstander som er mulige å finne der
-            dere er. Når man har funnet tre gode gjenstander så løper hvert lag
-            for å vært de første til å hente, og returnere gjenstande til der
+            dere er. Når man har funnet tre gode gjenstander så prøver hver lag
+            til å være de første til å hente, og returnere gjenstande til der
             dere startet. Taperene må drikke "vann".
           </Text>
           <View>

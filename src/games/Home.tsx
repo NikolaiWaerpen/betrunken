@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import AnimatedLottieView from "lottie-react-native";
+import React, { useEffect } from "react";
+import { Animated, Easing, Text, TouchableOpacity, View } from "react-native";
 import { games } from ".";
 import { tw } from "../../tailwind";
 import Container from "../components/Container";
@@ -13,8 +14,11 @@ export default function Home({ navigation, route }: NavigationProps<"Home">) {
   return (
     <Container>
       <View style={tw("h-full w-full justify-center")}>
+        <Text style={tw("text-theme-c text-xl font-semibold text-center")}>
+          Faen ta Korona!
+        </Text>
         <Text style={tw("text-theme text-4xl font-semibold text-center")}>
-          Betrunken!
+          VI SKAL DRIKKE!
         </Text>
         <View style={tw("mt-20 flex justify-center items-center")}>
           {games
@@ -60,9 +64,18 @@ export default function Home({ navigation, route }: NavigationProps<"Home">) {
           {/* <Text style={tw("text-theme text-base text-center")}>
             Idéer & innspill?
           </Text> */}
-          <Text style={tw("text-theme text-sm text-center")}>
-            Laget med 💦 av Nikolai Wærpen
-          </Text>
+          <View style={tw("flex flex-row justify-center items-center")}>
+            <Text style={tw("text-theme text-sm text-center")}>Laget med</Text>
+            <AnimatedLottieView
+              source={require("../../assets/heart.json")}
+              style={tw("w-16 h-16")}
+              loop
+              autoPlay
+            />
+            <Text style={tw("text-theme text-sm text-center")}>
+              av Nikolai Wærpen
+            </Text>
+          </View>
         </View>
       </View>
     </Container>
