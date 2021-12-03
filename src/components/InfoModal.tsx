@@ -22,7 +22,7 @@ export default function InfoModal() {
       snapPoints={snapPoint}
       // bottomInset={0} // add bottom inset to elevate the sheet
       // detached={true}
-      backgroundStyle={tw("bg-bfc-base-3")} // TODO: TWEAK DRAWER COLORS
+      backgroundStyle={tw("bg-base-3")} // TODO: TWEAK DRAWER COLORS
       index={infoModalIndex}
       enablePanDownToClose
       onChange={(currentInfoModalIndex) => {
@@ -32,7 +32,7 @@ export default function InfoModal() {
       style={tw("mx-3")}
       handleComponent={() => (
         <View style={tw("flex w-full justify-center items-center")}>
-          <View style={tw("w-9 h-1 rounded-xl bg-bfc-base-dimmed mt-3")} />
+          <View style={tw("w-9 h-1 rounded-xl bg-base-dimmed mt-3")} />
         </View>
       )}
     >

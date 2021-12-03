@@ -13,8 +13,8 @@ export default function Home({ navigation, route }: NavigationProps<"Home">) {
   return (
     <Container>
       <View style={tw("h-full w-full justify-center")}>
-        <Text style={tw("text-bfc-theme text-4xl font-semibold text-center")}>
-          Fredagspils!
+        <Text style={tw("text-theme text-4xl font-semibold text-center")}>
+          Betrunken!
         </Text>
         <View style={tw("mt-20 flex justify-center items-center")}>
           {games
@@ -31,22 +31,22 @@ export default function Home({ navigation, route }: NavigationProps<"Home">) {
                 >
                   <View
                     style={tw(
-                      "p-4 bg-bfc-base-3 border-bfc-border border h-28 flex justify-center items-center"
+                      "p-4 bg-base-3 border-border border h-28 flex justify-center items-center"
                     )}
                   >
                     <View style={tw("flex flex-row")}>
                       <View style={tw("flex justify-center")}>
                         <FontAwesomeIcon
                           icon={icon}
-                          style={tw("text-bfc-theme")}
+                          style={tw("text-theme")}
                           size={45}
                         />
                       </View>
                       <View style={tw("flex flex-col ml-3 w-72")}>
-                        <Text style={tw("text-bfc-theme text-xl font-medium")}>
+                        <Text style={tw("text-theme text-xl font-medium")}>
                           {options.headerTitle}
                         </Text>
-                        <Text style={tw("text-bfc-base-c text-sm")}>
+                        <Text style={tw("text-base-c text-sm")}>
                           {description}
                         </Text>
                       </View>
@@ -57,11 +57,11 @@ export default function Home({ navigation, route }: NavigationProps<"Home">) {
             })}
         </View>
         <View style={tw("mt-10")}>
-          <Text style={tw("text-bfc-theme text-base text-center")}>
+          {/* <Text style={tw("text-theme text-base text-center")}>
             Idéer & innspill?
-          </Text>
-          <Text style={tw("text-bfc-theme text-sm text-center")}>
-            Send en melding til Nikolai Wærpen på Teams!
+          </Text> */}
+          <Text style={tw("text-theme text-sm text-center")}>
+            Laget med 💦 av Nikolai Wærpen
           </Text>
         </View>
       </View>

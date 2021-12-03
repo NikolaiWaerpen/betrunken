@@ -89,7 +89,7 @@ export default function Seek({ navigation, route }: NavigationProps<"Seek">) {
                     style={tw(
                       `${
                         seekItem.length > 30 ? "text-lg" : "text-xl"
-                      } text-bfc-theme text-center`
+                      } text-theme text-center`
                     )}
                     key={key}
                   >

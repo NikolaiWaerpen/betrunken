@@ -28,14 +28,12 @@ export default function Deck({ cards, textSize }) {
         <View
           style={[
             tw(
-              "h-3/4 bg-bfc-base-3 rounded-xl flex items-center justify-center"
+              "h-3/4 bg-base-3 rounded-xl flex items-center justify-center px-8"
             ),
             styles.cardShadow,
           ]}
         >
-          <Text style={tw(`text-bfc-theme text-center ${textSize}`)}>
-            {card}
-          </Text>
+          <Text style={tw(`text-theme text-center ${textSize}`)}>{card}</Text>
         </View>
       )}
     />

@@ -272,9 +272,7 @@ export default function Point({ navigation, route }: NavigationProps<"Point">) {
       {/* Options */}
       <View style={tw("w-full flex items-center")}>
         <View
-          style={tw(
-            "flex flex-row justify-between bg-bfc-base-3 p-0.5 rounded-md"
-          )}
+          style={tw("flex flex-row justify-between bg-base-3 p-0.5 rounded-md")}
         >
           {options.map((option) => (
             <TouchableOpacity
@@ -284,11 +282,11 @@ export default function Point({ navigation, route }: NavigationProps<"Point">) {
               <View
                 style={tw(
                   `${
-                    chosenMode === option ? "bg-bfc-base" : ""
+                    chosenMode === option ? "bg-base" : ""
                   } p-2 rounded-md w-16 flex items-center`
                 )}
               >
-                <Text style={tw("text-bfc-theme text-xs")}>{option}</Text>
+                <Text style={tw("text-theme text-xs")}>{option}</Text>
               </View>
             </TouchableOpacity>
           ))}

@@ -12,8 +12,8 @@ export default function Container({ children, styles }: ContainerTypes) {
     <View
       // style={tw(
       //   styles
-      //     ? `w-full h-full bg-bfc-base ${styles}`
-      //     : "w-full h-full bg-bfc-base"
+      //     ? `w-full h-full bg-base ${styles}`
+      //     : "w-full h-full bg-base"
       // )}
       style={tw(styles ? `w-full h-full ${styles}` : "w-full h-full")}
     >

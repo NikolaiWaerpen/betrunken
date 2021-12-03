@@ -1,7 +1,7 @@
 import {
+  faQuestionCircle,
   faThumbsDown,
   faThumbsUp,
-  faQuestionCircle,
 } from "@fortawesome/free-regular-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -11,8 +11,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import AnimatedLottieView from "lottie-react-native";
 import React, { useEffect, useState } from "react";
 import { Animated, Easing, Text, View } from "react-native";
-import Swiper from "react-native-deck-swiper";
-import "react-native-gesture-handler";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { tw } from "../tailwind";
 import Container from "./components/Container";
@@ -42,14 +40,14 @@ function IntroAnimation({
 
     setTimeout(() => {
       navigation.navigate("Home");
-    }, loadingDuration - 1100); // to offset delay after animation finishes
+    }, loadingDuration - 400); // to offset delay after animation finishes
   }, []);
 
   return (
     <View style={tw("flex flex-1 justify-center items-center")}>
       <View style={tw("w-40 h-40")}>
         <AnimatedLottieView
-          source={require("../assets/loadingAnimation.json")}
+          source={require("../assets/loading.json")}
           progress={loadingProgress}
         />
       </View>
@@ -67,21 +65,21 @@ function Rules({ navigation, route }: NavigationProps<"Rules">) {
 
   return (
     <Container styles="flex justify-center items-center">
-      <Text style={tw("text-bfc-theme text-3xl")}>Kan alle reglene?</Text>
+      <Text style={tw("text-theme text-3xl")}>Kan alle reglene?</Text>
       <View style={tw("flex flex-row w-full justify-center mt-4")}>
         <TouchableOpacity
           onPress={() => {
             setInfoModalIndex(0);
           }}
           style={tw(
-            "p-4 bg-bfc-base-3 border-bfc-border border w-36 flex justify-center items-center mr-4"
+            "p-4 bg-base-3 border-border border w-36 flex justify-center items-center mr-4"
           )}
         >
           <View style={tw("h-7 flex justify-center")}>
-            <Text style={tw("text-bfc-theme text-lg")}>
+            <Text style={tw("text-theme text-lg")}>
               <FontAwesomeIcon
                 icon={faThumbsDown}
-                style={tw("mt-1 text-bfc-theme")}
+                style={tw("mt-1 text-theme")}
               />{" "}
               Nei
             </Text>
@@ -91,19 +89,19 @@ function Rules({ navigation, route }: NavigationProps<"Rules">) {
         <TouchableOpacity
           onPress={() =>
             pointIsActiveGame
-              ? navigation.navigate(activeGame)
+              ? navigation.navigate("Countdown")
               : navigation.navigate("Teams")
           }
           style={tw(
-            "p-4 bg-bfc-base-3 border-bfc-border border w-36 flex justify-center items-center"
+            "p-4 bg-base-3 border-border border w-36 flex justify-center items-center"
           )}
         >
           <View style={tw("h-7 flex justify-center")}>
-            <Text style={tw("text-bfc-theme text-lg")}>
+            <Text style={tw("text-theme text-lg")}>
               Ja{" "}
               <FontAwesomeIcon
                 icon={faThumbsUp}
-                style={tw("mb-2 text-bfc-theme")}
+                style={tw("mb-2 text-theme")}
               />
             </Text>
           </View>
@@ -117,10 +115,10 @@ function Teams({ navigation, route }: NavigationProps<"Teams">) {
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Ready")}>
       <Container styles="flex justify-center items-center">
-        <Text style={tw("text-bfc-theme text-3xl text-center")}>
+        <Text style={tw("text-theme text-3xl text-center")}>
           Del opp i minimum to lag
         </Text>
-        <Text style={tw("text-bfc-theme text-sm text-center")}>
+        <Text style={tw("text-theme text-sm text-center")}>
           (trykk på skjermen for å gå videre)
         </Text>
       </Container>
@@ -132,10 +130,8 @@ function Ready({ navigation, route }: NavigationProps<"Teams">) {
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Countdown")}>
       <Container styles="flex justify-center items-center">
-        <Text style={tw("text-bfc-theme text-3xl text-center")}>
-          Alle klare?
-        </Text>
-        <Text style={tw("text-bfc-theme text-lg text-center")}></Text>
+        <Text style={tw("text-theme text-3xl text-center")}>Alle klare?</Text>
+        <Text style={tw("text-theme text-lg text-center")}></Text>
       </Container>
     </TouchableOpacity>
   );
@@ -146,6 +142,7 @@ const countdownProgress = new Animated.Value(0);
 
 function Countdown({ navigation, route }: NavigationProps<"Countdown">) {
   const { activeGame } = useActiveGame();
+  const [animationRunOnce, setAnimationRunOnce] = useState(false);
 
   useEffect(() => {
     Animated.timing(countdownProgress, {
@@ -158,16 +155,23 @@ function Countdown({ navigation, route }: NavigationProps<"Countdown">) {
     setTimeout(() => {
       // @ts-ignore
       navigation.navigate(activeGame);
-    }, countdownDuration - 1200); // to offset delay after animation finishes
+    }, countdownDuration - 1000); // to offset delay after animation finishes
+
+    // minor bug workaround - ugly
+    setTimeout(() => {
+      setAnimationRunOnce(true);
+    }, countdownDuration);
   }, []);
 
   return (
     <View style={tw("flex flex-1 justify-center items-center")}>
       <View style={tw("w-64 h-64")}>
-        <AnimatedLottieView
-          source={require("../assets/countdownAnimation.json")}
-          progress={countdownProgress}
-        />
+        {!animationRunOnce && (
+          <AnimatedLottieView
+            source={require("../assets/countdown.json")}
+            progress={countdownProgress}
+          />
+        )}
       </View>
     </View>
   );
@@ -178,12 +182,12 @@ export default function Routes() {
   const { setActiveGame } = useActiveGame();
 
   return (
-    <View style={tw("flex-1 bg-bfc-base")}>
+    <View style={tw("flex-1 bg-base")}>
       <NavigationContainer theme={DarkTheme}>
         <Stack.Navigator
           initialRouteName="IntroAnimation"
           screenOptions={{
-            cardStyle: tw("bg-bfc-base"),
+            cardStyle: tw("bg-base"),
           }}
         >
           <Stack.Group
@@ -192,7 +196,13 @@ export default function Routes() {
             }}
           >
             <Stack.Screen name={"IntroAnimation"} component={IntroAnimation} />
-            <Stack.Screen name={"Home"} component={Home} />
+            <Stack.Screen
+              name={"Home"}
+              component={Home}
+              options={{
+                gestureEnabled: false,
+              }}
+            />
             <Stack.Screen name={"Rules"} component={Rules} />
             <Stack.Screen name={"Teams"} component={Teams} />
             <Stack.Screen name={"Ready"} component={Ready} />
@@ -217,7 +227,7 @@ export default function Routes() {
                 component={component}
                 options={{
                   headerBackground: () => (
-                    <HeaderBackground style={tw("bg-bfc-base")} />
+                    <HeaderBackground style={tw("bg-base")} />
                   ),
                   headerLeft: ({ onPress }) => (
                     <TouchableOpacity
@@ -229,7 +239,7 @@ export default function Routes() {
                     >
                       <FontAwesomeIcon
                         icon={faChevronLeft}
-                        style={tw("text-bfc-theme text-3xl")}
+                        style={tw("text-theme text-3xl")}
                         size={25}
                       />
                     </TouchableOpacity>
@@ -244,7 +254,7 @@ export default function Routes() {
                     >
                       <FontAwesomeIcon
                         icon={faQuestionCircle}
-                        style={tw("text-bfc-theme text-3xl")}
+                        style={tw("text-theme text-3xl")}
                         size={25}
                       />
                     </TouchableOpacity>

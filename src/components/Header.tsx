@@ -23,14 +23,14 @@ export default function Header({ navigation, route, children }: HeaderProps) {
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <FontAwesomeIcon
               icon={faChevronLeft}
-              style={tw("text-bfc-theme text-3xl")}
+              style={tw("text-theme text-3xl")}
               size={25}
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setInfoModalIndex(0)}>
             <FontAwesomeIcon
               icon={faInfoCircle}
-              style={tw("text-bfc-theme text-3xl")}
+              style={tw("text-theme text-3xl")}
               size={25}
             />
           </TouchableOpacity>
