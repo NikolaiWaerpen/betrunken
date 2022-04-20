@@ -21,8 +21,6 @@ import useActiveGame from "./hooks/useActiveGame";
 import useInfoModalIndex from "./hooks/useInfoModalIndex";
 import { NavigationProps, RouteParamList } from "./RouteParamList";
 
-const Stack = createStackNavigator<RouteParamList>();
-
 const loadingDuration = 2200;
 const loadingProgress = new Animated.Value(0);
 
@@ -57,10 +55,9 @@ function IntroAnimation({
 
 function Rules({ navigation, route }: NavigationProps<"Rules">) {
   const { activeGame } = useActiveGame();
-  const pointIsActiveGame = activeGame === "Point";
+  const pointOrHundred = activeGame === "Point" || activeGame === "Hundred";
   const { setInfoModalIndex } = useInfoModalIndex();
 
-  // point
   if (!activeGame) navigation.navigate("Home");
 
   return (
@@ -88,7 +85,7 @@ function Rules({ navigation, route }: NavigationProps<"Rules">) {
 
         <TouchableOpacity
           onPress={() =>
-            pointIsActiveGame
+            pointOrHundred
               ? navigation.navigate("Countdown")
               : navigation.navigate("Teams")
           }
@@ -176,6 +173,8 @@ function Countdown({ navigation, route }: NavigationProps<"Countdown">) {
     </View>
   );
 }
+
+const Stack = createStackNavigator<RouteParamList>();
 
 export default function Routes() {
   const { setInfoModalIndex } = useInfoModalIndex();

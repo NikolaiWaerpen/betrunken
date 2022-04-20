@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import AnimatedLottieView from "lottie-react-native";
-import React, { useEffect } from "react";
-import { Animated, Easing, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import { games } from ".";
 import { tw } from "../../tailwind";
 import Container from "../components/Container";

@@ -4,12 +4,13 @@ import { GamesParamList } from "../RouteParamList";
 
 import Point from "./Point";
 import Mime from "./Mime";
-import Seek from "./Seek";
+import Hundred from "./Hundred";
 import {
   faChevronDown,
   faChild,
   faEye,
   faHandPointRight,
+  faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import { tw } from "../../tailwind";
@@ -25,15 +26,11 @@ type gamesType = {
   options: any;
 };
 
-const InfoComponent = ({ text }) => {
-  return <Text style={tw("text-theme")}>{text}</Text>;
-};
-
 export const games: gamesType[] = [
   {
     game: "Point",
     description:
-      "Perfekt for å få fart på vorset! Hvor godt kjenner du egentlig de nærmest rundt deg...?",
+      "Perfekt for å få fart på vorset! Hvem sa at det var stygt å peke?",
     icon: faHandPointRight,
     render: true,
     component: Point,
@@ -87,25 +84,23 @@ export const games: gamesType[] = [
     options: { headerTitle: "Pekeleken" },
   },
   {
-    game: "Seek",
-    // description: "Hvem sa at ferdigheten å finne de mest obskyre gjenstander ikke kom til nytte?",
+    game: "Hundred",
     description:
-      "Forbered deg på å sette bena til god nytte. Her gjelder det å finne tre gjenstander.",
-    icon: faEye,
+      "Hvor godt kjenner du de andre i rommet? Har du en overdreven tiltro som menneskekjenner?",
+    icon: faQuestion,
     render: true,
-    component: Seek,
+    component: Hundred,
     GameInfo: (
       <View>
         <Text style={tw("text-theme text-3xl font-medium text-center mt-8")}>
-          Finn gjenstandene
+          100 spørsmål
         </Text>
         <View style={tw("mt-8")}>
           <Text style={tw("text-base-c text-lg")}>
-            Del dere opp i lag. Minst to, men gjerne flere. Start spillet. Trykk
-            videre til dere finner tre gjenstander som er mulige å finne der
-            dere er. Når man har funnet tre gode gjenstander så prøver hver lag
-            til å være de første til å hente, og returnere gjenstande til der
-            dere startet. Taperene må drikke "vann".
+            100 spørsmål er en klassiker. Finn et objekt som kan kastes til
+            deltakerene. Velg så en ordstyrer til å lese utsagn. Personen leser
+            utsagnet høyt og kaster objektet til den de mener passer best til
+            utsagnet. Vedkommende som blir kastet til må drikke "vann".
           </Text>
           <View>
             <Text style={tw("text-base-c text-lg mt-4 underline mt-8 mb-2")}>
@@ -114,35 +109,29 @@ export const games: gamesType[] = [
 
             <View style={tw("flex items-center")}>
               <Text style={tw("text-base-c text-lg text-center")}>
-                Brødskive, pepperbøsse, belte
+                Hvem er mest blikkfang
               </Text>
               <FontAwesomeIcon
                 icon={faChevronDown}
                 style={tw("text-theme my-4")}
               />
               <Text style={tw("text-base-c text-lg text-center")}>
-                Lagene prøver å finne gjenstandene
+                Personen som har gjenstanden kaster til vedkommende de mener
+                passer best til utsagnet
               </Text>
               <FontAwesomeIcon
                 icon={faChevronDown}
                 style={tw("text-theme my-4")}
               />
               <Text style={tw("text-base-c text-lg text-center")}>
-                Første laget til å finne og returnere alle gjenstandene vinner
-              </Text>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                style={tw("text-theme my-4")}
-              />
-              <Text style={tw("text-base-c text-lg text-center")}>
-                Taperlag(ene) må drikke "vann"
+                Vedkommende må drikke "vann"
               </Text>
             </View>
           </View>
         </View>
       </View>
     ),
-    options: { headerTitle: "Finn gjenstandene" },
+    options: { headerTitle: "100 spørsmål" },
   },
   {
     game: "Mime",

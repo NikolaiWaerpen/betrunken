@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Fredagspils",
-    "slug": "fredagspils",
+    "name": "Vi skal drikke!",
+    "slug": "vi-skal-drikke",
     "version": "2.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.nikolaiwaerpen.fredagspils"
+      "bundleIdentifier": "com.nikolaiwaerpen.vi-skal-drikke"
     },
     "android": {
       "adaptiveIcon": {

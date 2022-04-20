@@ -3,82 +3,10 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { tw } from "../../tailwind";
 import Container from "../components/Container";
 import Deck from "../components/Deck";
-import FinishedGame from "../components/FinishedGame";
 import { NavigationProps } from "../RouteParamList";
 
 const pointData = {
   sfw: [
-    // Generell
-    "Hvem har det laveste AA nummeret",
-    "Hvem setter seg selv til 'Busy' for å ikke bli forstyrret",
-    "Hvem kunne hatt bilde av sjefen som bakgrunnsbilde",
-    "Hvem kaller seg selv en Intilianer",
-    "Hvem har aldri vært med på jobbstrekk",
-    "Hvem har hoppet ut av møter fordi de ikke føler for å være med lenger",
-    "Hvem er den lokale Kahoot mesteren uansett tema",
-    "Hvem har rarest sittestillinger",
-    "Hvem kom på kontoret i dag kun for å være med i kveld",
-    "Hvem er først til å foreslå kebab når det er fisk i kantina?",
-    "Hvem er mest opptatt av å ha en ren pult på kontoret?",
-    "Hvem er mest energidrikk-avhengig?",
-
-    // Fredagspils
-    "Hvem kunne ha danset på bordet på fredagspils",
-
-    // Bærekraftig
-    "Hvem gikk mest inn for å være på vinnerlaget på bærekraftig fredagspils",
-    "Hvem nektet å spise vegetarisk på mandag",
-    "Hvem hadde flest skritt på tirsdag",
-    "Hvem hadde den beste bærekraftige idéen på onsdag",
-    "Hvem tok kortest kalddusj på torsdag",
-
-    // SkiWeeknd
-    "Hvem har reist på SkiWeekend ikke for å stå på ski, men for å drikke",
-
-    // Julebord
-
-    // Sommerfest
-
-    // Prosjekt
-    "Hvem har ikke jobbet en eneste prosjekthelg",
-    "Hvem har jobbet mest overtid på prosjekt",
-    "Hvem har hatt sendt de dyreste utleggene",
-    "Hvem har reist til det mest eksotiske landet på prosjekt",
-    "Hvem har brukt mest penger på mat på en prosjekthelg",
-
-    // Kantina (vaffelsøndag, frokost, 2.0)
-    "Hvem tar alltid to runder i lunsjen",
-    "Hvem spiser flest vafler på torsdager",
-    "Hvem spiser alltid frokost, en gigantisk lunsj og 2.0 på kontoret",
-
-    // Kontoret
-    "Hvem drikker flest te- og kaffekopper på en dag",
-    "Hvem har minst blære",
-    "Hvem kommer tidligst på kontoret",
-    "Hvem kommer alltid senest på kontoret",
-    "Hvem er alltid forsinket i møter",
-    "Hvem skriver oftest 'Må løpe videre' i møter",
-    "Hvem har finest kontoroppsett (kontoret & hjemmekontor)",
-    "Hvem har det mest rotete kontorbordet",
-
-    // Hjemmekontor
-    "Hvem sitter alltid på hjemmekontor",
-    "Hvem har ikke på seg bukse under møter på hjememkontor",
-    "Hvem står opp 5 minutter før de starter på hjemmekontoret",
-    "Hvem har sovnet under avdelingsledermøtet",
-    "Hvem kunne sittet på do under et møte med bakgrunn på",
-
-    // SAW
-    "Hvem fordrar mest å bruke SAW",
-    "Hvem har vært nærmest på å kaste SAW'en ut av nærmeste vindu",
-
-    // CS
-    "Hvem har sendt de dummeste mailene",
-    "Hvem er mest tech-illiterate",
-    "Hvem har avsluttet flest saker",
-    "Hvem har flest aktive saker",
-
-    // Filler
     "Hvem ville du blitt strandet på en øde øy med",
     "Hvem gråter mest når de ser en trist film",
     "Hvem kunne kjøpt sko til 3000kr",
@@ -165,15 +93,6 @@ const pointData = {
     "Hvem hadde vunnet en freestyle rap battle",
   ],
   nsfw: [
-    // Spesifikk
-    "Hvem sitter lengst på do 'on company time'",
-    "Hvem åpner alltid Reddit på do",
-    "Hvem har vært mest drita på sommerfest",
-    "Hvem har vært mest drita på julebord",
-    "Hvem har drukket mest alkohold på jobbens regning",
-    "Hvem har blitt mest drita på fredagspils",
-    "Hvem jobber minst",
-
     // Filler
     "Hvem ville sagt fra til deg hvis antrekket ditt var stygt",
     "Hvem ville klart å spise opp en 1000 grams burger raskest",

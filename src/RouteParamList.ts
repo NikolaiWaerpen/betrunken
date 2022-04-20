@@ -3,7 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 export type GamesParamList = {
   Point: undefined;
-  Seek: undefined;
+  Hundred: undefined;
   Mime: undefined;
 };
 
